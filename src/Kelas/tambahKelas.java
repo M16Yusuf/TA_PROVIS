@@ -40,7 +40,6 @@ public class tambahKelas extends javax.swing.JFrame {
         } 
     }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -205,7 +204,7 @@ public class tambahKelas extends javax.swing.JFrame {
        catch (Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
             System.out.println("Koneksi Gagal "+e.toString());
-        } 
+       } 
     }//GEN-LAST:event_btnaddKelasActionPerformed
 
     private void CBwaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBwaliActionPerformed

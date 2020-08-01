@@ -5,6 +5,10 @@
  */
 package Kelas;
 
+import SambungDB.sambungDatabase;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author m16yusuf
@@ -16,6 +20,24 @@ public class editKelas extends javax.swing.JFrame {
      */
     public editKelas() {
         initComponents();
+        cbwalikelas();
+    }
+    
+    private void cbwalikelas(){
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql="select * from tb_guru";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            
+           while(res.next()){
+               String jenis =res.getString("nama_guru");
+               CBwali.addItem(jenis);
+           }    
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        } 
     }
 
     /**
@@ -56,6 +78,12 @@ public class editKelas extends javax.swing.JFrame {
         CBTingkatKelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas 4", "Kelas 5", "Kelas 6" }));
 
         jLabel5.setText("ID Kelas");
+
+        CBwali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBwaliActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Wali Kelas");
 
@@ -170,8 +198,63 @@ public class editKelas extends javax.swing.JFrame {
 
     private void btnEditKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditKelasActionPerformed
         // TODO add your handling code here:
-        
+        sambungDatabase sambung = new sambungDatabase();
+       int tingkat = 0;
+       if(CBTingkatKelas.getSelectedItem()=="Kelas 1"){
+           tingkat = 1;
+       }
+       else
+       if (CBTingkatKelas.getSelectedItem()=="Kelas 2"){
+           tingkat = 2;
+       }
+       else
+       if (CBTingkatKelas.getSelectedItem()=="Kelas 3"){
+           tingkat = 3;
+       }
+       else
+       if (CBTingkatKelas.getSelectedItem()=="Kelas 4"){
+           tingkat = 4;
+       }
+       else
+       if (CBTingkatKelas.getSelectedItem()=="Kelas 5"){
+           tingkat = 5;
+       }
+       else
+       if (CBTingkatKelas.getSelectedItem()=="Kelas 6"){
+           tingkat = 6;
+       }
+       
+       try{
+           String temp = txtIDKelas.getText();
+           String sql ="UPDATE tb_kelas SET id_kelas='" +temp.toUpperCase()+ "', tingkat_kelas='" 
+                   +tingkat+ "', nip_walikelas='" +labelNip.getText()+"' WHERE id_kelas='"+ txtinEditKelas.getText().toUpperCase() +"' ";
+           sambung.stat.executeUpdate(sql);
+           
+           JOptionPane.showMessageDialog(null, "Data berhasil di Update");
+           dispose();
+       }
+       catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        } 
     }//GEN-LAST:event_btnEditKelasActionPerformed
+
+    private void CBwaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBwaliActionPerformed
+        // TODO add your handling code here:
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql = "SELECT * FROM tb_guru WHERE nama_guru= '"+ CBwali.getSelectedItem() +"' ";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            while(res.next()){
+                String nip_wali = res.getString("nip");
+                labelNip.setText(nip_wali);
+            }  
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        } 
+    }//GEN-LAST:event_CBwaliActionPerformed
 
     /**
      * @param args the command line arguments

@@ -187,7 +187,8 @@ public class editGuru extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             sambungDatabase sambung = new sambungDatabase();
-            String sql ="UPDATE tb_guru SET nip='"+ txtNip.getText() +"', nama_guru='"+ txtnama.getText() +"', alamat_guru='"+ txtalamat.getText() +"', tgl_lahir_guru='"+ tglinput.format(dateCGuru.getDate()) +"' WHERE nip= '"+txtinNIP.getText()+"' "; 
+            String sql ="UPDATE tb_guru SET nip='"+ txtNip.getText() +"', nama_guru='"+ txtnama.getText() +"', alamat_guru='"
+                    + txtalamat.getText() +"', tgl_lahir_guru='"+ tglinput.format(dateCGuru.getDate()) +"' WHERE nip= '"+txtinNIP.getText()+"' "; 
             sambung.stat.executeUpdate(sql);
             
             JOptionPane.showMessageDialog(null, "Data berhasil di update");
