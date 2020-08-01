@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author asus
+ * @author m16yusuf
  */
 public class tambahGuru extends javax.swing.JFrame {
 

@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author asus
+ * @author m16yusuf
  */
 public class hapusKelas extends javax.swing.JFrame {
 
