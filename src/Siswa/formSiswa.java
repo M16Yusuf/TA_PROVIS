@@ -139,8 +139,18 @@ public class formSiswa extends javax.swing.JInternalFrame {
         });
 
         TblEdit.setText("Edit");
+        TblEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblEditActionPerformed(evt);
+            }
+        });
 
         TblHapus.setText("Hapus");
+        TblHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblHapusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -315,6 +325,18 @@ public class formSiswa extends javax.swing.JInternalFrame {
         tambahSiswa tambah = new tambahSiswa();
         tambah.setVisible(true);
     }//GEN-LAST:event_TblTambahActionPerformed
+
+    private void TblEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblEditActionPerformed
+        // TODO add your handling code here:
+        editSiswa edit = new editSiswa();
+        edit.setVisible(true);
+    }//GEN-LAST:event_TblEditActionPerformed
+
+    private void TblHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblHapusActionPerformed
+        // TODO add your handling code here:
+        hapusSiswa hapus = new hapusSiswa();
+        hapus.setVisible(true);
+    }//GEN-LAST:event_TblHapusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

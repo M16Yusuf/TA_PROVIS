@@ -211,7 +211,7 @@ public class tambahSiswa extends javax.swing.JFrame {
         sambungDatabase sambung = new sambungDatabase();
         
         try{
-           String sql ="INSERT INTO tb_siswa VALUES('" +txtaddNiss.getText()+ "','" + txtaddNiss.getText() +  "','" + txtaddAlamat.getText() + "','" 
+           String sql ="INSERT INTO tb_siswa VALUES('" +txtaddNiss.getText()+ "','" + txtaddNama.getText() +  "','" + txtaddAlamat.getText() + "','" 
                    + tglinput.format(JdateLahir.getDate()) +"','"+ CBKelas.getSelectedItem() +"' )";
            sambung.stat.executeUpdate(sql);
            
