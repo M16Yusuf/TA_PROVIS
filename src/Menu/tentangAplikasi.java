@@ -24,8 +24,6 @@ public class tentangAplikasi extends javax.swing.JInternalFrame {
         initComponents();
         txtAreaAbout.setLineWrap(true);
         txtAreaAbout.setWrapStyleWord(true);
-        txtAreaAbout.setEnabled(false);
-        txtAreaAbout.setBackground(Color.WHITE);
         
         settulisan();
         tampilAdmin();
@@ -86,6 +84,7 @@ public class tentangAplikasi extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Aplikasi Pengolah Nilai ");
 
+        txtAreaAbout.setEditable(false);
         txtAreaAbout.setColumns(20);
         txtAreaAbout.setRows(5);
         jScrollPane1.setViewportView(txtAreaAbout);

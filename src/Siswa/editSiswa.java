@@ -249,7 +249,7 @@ public class editSiswa extends javax.swing.JFrame {
                     +txteditNIS.getText()+"' ";
             sambung.stat.executeUpdate(sql);
 
-            JOptionPane.showMessageDialog(null, "Data berhasil di tambahkan");
+            JOptionPane.showMessageDialog(null, "Data berhasil di Update");
             dispose();
         }
         catch (Exception e){
