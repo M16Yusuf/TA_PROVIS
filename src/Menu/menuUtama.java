@@ -251,6 +251,15 @@ public class menuUtama extends javax.swing.JFrame {
     private void aboutAplikasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutAplikasiActionPerformed
         // TODO add your handling code here:
         tentangAplikasi about = new tentangAplikasi();
+        
+        // ambil size screen dan about
+        Dimension layarutama = this.getSize();
+        Dimension layar = about.getSize();
+        // set di tengah screen
+        about.setLocation(layarutama.width/2-layar.width/2,layarutama.height/2-layar.height/2);
+        
+        //menampilkan form kelas di panel utama
+        panelUtama.add(about);
         about.setVisible(true);
     }//GEN-LAST:event_aboutAplikasiActionPerformed
 
