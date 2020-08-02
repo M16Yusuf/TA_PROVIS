@@ -77,10 +77,13 @@ public class menuUtama extends javax.swing.JFrame {
         );
         panelUtamaLayout.setVerticalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 433, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+
         jMenu1.setText("Siswa");
+        jMenu1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jMenuSiswa.setText("data Siswa");
         jMenuSiswa.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +96,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Guru");
+        jMenu2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jMenuDataGuru.setText("Data Guru");
         jMenuDataGuru.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +109,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu5.setText("Kelas");
+        jMenu5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jMenuKelas.setText("Data Kelas");
         jMenuKelas.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +122,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu7.setText("Pelajaran");
+        jMenu7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jMenuPelajaran.setText("Data Pelajaran");
         jMenuPelajaran.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +135,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu7);
 
         jMenu6.setText("Nilai");
+        jMenu6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jMenuNilai.setText("Data Nilai");
         jMenuNilai.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +148,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu6);
 
         jMenu8.setText("About");
+        jMenu8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         aboutAplikasi.setText("Tentang Aplikasi");
         aboutAplikasi.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +161,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu8);
 
         JmenuADmin.setText("Admin");
+        JmenuADmin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         JmenuADmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JmenuADminActionPerformed(evt);

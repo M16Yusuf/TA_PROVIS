@@ -6,6 +6,7 @@
 package Menu;
 
 import SambungDB.sambungDatabase;
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +25,7 @@ public class tentangAplikasi extends javax.swing.JInternalFrame {
         txtAreaAbout.setLineWrap(true);
         txtAreaAbout.setWrapStyleWord(true);
         txtAreaAbout.setEnabled(false);
+        txtAreaAbout.setBackground(Color.WHITE);
         
         settulisan();
         tampilAdmin();

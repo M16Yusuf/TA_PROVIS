@@ -5,9 +5,14 @@
  */
 package Pelajaran;
 
+import SambungDB.sambungDatabase;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author asus
+ * @author m16yusuf
  */
 public class formPelajaran extends javax.swing.JInternalFrame {
 
@@ -19,7 +24,28 @@ public class formPelajaran extends javax.swing.JInternalFrame {
     }
     
     public void tampilPelajaran (){
+        Object[] row = {"ID Pelajaran ","Nama Pelajaran"," Tingkat Kelas","NIP Pengajar ","Nama Pengajar"}; 
+        DefaultTableModel tabmodel = new DefaultTableModel(null,row);
+        jTablePelajaran.setModel(tabmodel); 
         
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql = "SELECT tb_pelajaran.*,tb_guru.nama_guru FROM tb_guru JOIN tb_pelajaran ON tb_guru.nip = tb_pelajaran.nip_pengajar ";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            while(res.next()){
+                String id_pel = String.valueOf(res.getInt("id_pelajaran"));
+                String nama_pel = res.getString("nama_pelajaran");
+                String tingkat = String.valueOf(res.getInt("tingkat"));
+                String nip = res.getString("nip_pengajar");
+                String nama_peng = res.getString("nama_guru");
+                String[] data = {id_pel,nama_pel,tingkat,nip,nama_peng};
+                tabmodel.addRow(data);
+            }
+        }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        }   
     }
 
     /**
@@ -56,10 +82,25 @@ public class formPelajaran extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTablePelajaran);
 
         TblRefresh.setText("Refresh");
+        TblRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblRefreshActionPerformed(evt);
+            }
+        });
 
         TblTambah.setText("Tambah");
+        TblTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblTambahActionPerformed(evt);
+            }
+        });
 
         TblEdit.setText("Edit");
+        TblEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblEditActionPerformed(evt);
+            }
+        });
 
         TblHapus.setText("Hapus");
         TblHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +117,11 @@ public class formPelajaran extends javax.swing.JInternalFrame {
         });
 
         TblCari.setText("Cari");
+        TblCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblCariActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Data Mata Pelajaran ");
 
@@ -85,34 +131,34 @@ public class formPelajaran extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(57, 57, 57)
-                        .addComponent(TblCari))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TblTutup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TblEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TblTambah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TblRefresh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TblHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(TblRefresh))
-                    .addComponent(TblHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TblEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TblTambah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TblTutup, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCariPelajaran))
+                        .addComponent(jLabel1)
+                        .addGap(148, 148, 148)
+                        .addComponent(TblCari)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCariPelajaran, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TblCari)
                     .addComponent(txtCariPelajaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TblRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -123,7 +169,7 @@ public class formPelajaran extends javax.swing.JInternalFrame {
                         .addComponent(TblHapus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TblTutup))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -138,6 +184,50 @@ public class formPelajaran extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_TblTutupActionPerformed
+
+    private void TblRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblRefreshActionPerformed
+        // TODO add your handling code here:
+        tampilPelajaran();
+    }//GEN-LAST:event_TblRefreshActionPerformed
+
+    private void TblCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblCariActionPerformed
+        // TODO add your handling code here:
+        Object[] row = {"ID Pelajaran ","Nama Pelajaran"," Tingkat Kelas","NIP Pengajar ","Nama Pengajar"}; 
+        DefaultTableModel tabmodel = new DefaultTableModel(null,row);
+        jTablePelajaran.setModel(tabmodel); 
+        
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql = "SELECT tb_pelajaran.*,tb_guru.nama_guru FROM tb_guru JOIN tb_pelajaran ON tb_guru.nip = tb_pelajaran.nip_pengajar WHERE tb_pelajaran.nama_pelajaran LIKE '%" +txtCariPelajaran.getText()+ "%' or tb_guru.nama_guru LIKE '%"+ txtCariPelajaran.getText() +"%'";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            while(res.next()){
+                String id_pel = String.valueOf(res.getInt("id_pelajaran"));
+                String nama_pel = res.getString("nama_pelajaran");
+                String tingkat = String.valueOf(res.getInt("tingkat"));
+                String nip = res.getString("nip_pengajar");
+                String nama_peng = res.getString("nama_guru");
+                String[] data = {id_pel,nama_pel,tingkat,nip,nama_peng};
+                tabmodel.addRow(data);
+            }
+        }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        }   
+    }//GEN-LAST:event_TblCariActionPerformed
+
+    private void TblTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblTambahActionPerformed
+        // TODO add your handling code here:
+        tambahPelajaran tambah = new tambahPelajaran();
+        tambah.setVisible(true);
+        
+    }//GEN-LAST:event_TblTambahActionPerformed
+
+    private void TblEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblEditActionPerformed
+        // TODO add your handling code here:
+        editPelajaran edit = new editPelajaran();
+        edit.setVisible(true);
+    }//GEN-LAST:event_TblEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
