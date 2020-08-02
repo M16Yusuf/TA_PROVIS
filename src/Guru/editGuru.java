@@ -163,7 +163,8 @@ public class editGuru extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(426, 355));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtinNIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtinNIPActionPerformed

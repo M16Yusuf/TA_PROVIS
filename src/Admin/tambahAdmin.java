@@ -132,7 +132,8 @@ public class tambahAdmin extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(375, 306));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtaddidAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddidAdminActionPerformed

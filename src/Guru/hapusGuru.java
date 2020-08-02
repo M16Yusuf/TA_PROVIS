@@ -108,7 +108,8 @@ public class hapusGuru extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(357, 212));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtHapusGuruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHapusGuruActionPerformed

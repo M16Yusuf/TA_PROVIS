@@ -148,7 +148,8 @@ public class editAdmin extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(366, 312));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInAdminActionPerformed

@@ -148,7 +148,8 @@ public class tambahGuru extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(376, 319));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtaddnipGuruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddnipGuruActionPerformed

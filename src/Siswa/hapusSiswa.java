@@ -117,7 +117,8 @@ public class hapusSiswa extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(419, 273));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txthapusSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthapusSiswaActionPerformed

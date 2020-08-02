@@ -112,7 +112,8 @@ public class hapusAdmin extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(359, 192));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txthapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthapusActionPerformed

@@ -115,7 +115,8 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(416, 339));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void InPassAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InPassAdminActionPerformed
