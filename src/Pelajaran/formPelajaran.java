@@ -266,6 +266,8 @@ public class formPelajaran extends javax.swing.JInternalFrame {
 
     private void TblHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblHapusActionPerformed
         // TODO add your handling code here:
+        hapusPelajaran hapus = new hapusPelajaran();
+        hapus.setVisible(true);
     }//GEN-LAST:event_TblHapusActionPerformed
 
     private void TblTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblTutupActionPerformed
