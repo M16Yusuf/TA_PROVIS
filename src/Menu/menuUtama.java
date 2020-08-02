@@ -38,6 +38,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         panelUtama = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -48,8 +49,11 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuKelas = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        aboutAplikasi = new javax.swing.JMenuItem();
         JmenuADmin = new javax.swing.JMenu();
         menuAdmin = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -57,17 +61,19 @@ public class menuUtama extends javax.swing.JFrame {
 
         jMenu4.setText("jMenu4");
 
+        jMenuItem2.setText("jMenuItem2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout panelUtamaLayout = new javax.swing.GroupLayout(panelUtama);
         panelUtama.setLayout(panelUtamaLayout);
         panelUtamaLayout.setHorizontalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 691, Short.MAX_VALUE)
         );
         panelUtamaLayout.setVerticalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 441, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Siswa");
@@ -112,6 +118,18 @@ public class menuUtama extends javax.swing.JFrame {
         jMenu6.setText("Nilai");
         jMenuBar1.add(jMenu6);
 
+        jMenu8.setText("About");
+
+        aboutAplikasi.setText("Tentang Aplikasi");
+        aboutAplikasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutAplikasiActionPerformed(evt);
+            }
+        });
+        jMenu8.add(aboutAplikasi);
+
+        jMenuBar1.add(jMenu8);
+
         JmenuADmin.setText("Admin");
         JmenuADmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +145,14 @@ public class menuUtama extends javax.swing.JFrame {
         });
         JmenuADmin.add(menuAdmin);
 
+        jMenuItem3.setText("Logout");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        JmenuADmin.add(jMenuItem3);
+
         jMenuBar1.add(JmenuADmin);
 
         setJMenuBar(jMenuBar1);
@@ -135,11 +161,16 @@ public class menuUtama extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelUtama)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelUtama)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelUtama, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(panelUtama)
+                .addContainerGap())
         );
 
         pack();
@@ -212,10 +243,22 @@ public class menuUtama extends javax.swing.JFrame {
         kelas.tampilKelas();
     }//GEN-LAST:event_jMenuKelasActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void aboutAplikasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutAplikasiActionPerformed
+        // TODO add your handling code here:
+        tentangAplikasi about = new tentangAplikasi();
+        about.setVisible(true);
+    }//GEN-LAST:event_aboutAplikasiActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JmenuADmin;
+    private javax.swing.JMenuItem aboutAplikasi;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -223,9 +266,12 @@ public class menuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuDataGuru;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuKelas;
     private javax.swing.JMenuItem jMenuSiswa;
     private javax.swing.JMenuItem menuAdmin;
