@@ -17,6 +17,10 @@ public class formNilai extends javax.swing.JInternalFrame {
     public formNilai() {
         initComponents();
     }
+    
+    public void tampilNilai(){
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

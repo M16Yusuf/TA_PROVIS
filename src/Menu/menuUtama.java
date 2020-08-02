@@ -8,6 +8,8 @@ package Menu;
 import Admin.formAdmin;
 import Guru.formGuru;
 import Kelas.formKelas;
+import Nilai.formNilai;
+import Pelajaran.formPelajaran;
 import Siswa.formSiswa;
 import java.awt.Dimension;
 
@@ -48,7 +50,9 @@ public class menuUtama extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenuKelas = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
+        jMenuPelajaran = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jMenuNilai = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         aboutAplikasi = new javax.swing.JMenuItem();
         JmenuADmin = new javax.swing.JMenu();
@@ -113,9 +117,27 @@ public class menuUtama extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu7.setText("Pelajaran");
+
+        jMenuPelajaran.setText("Data Pelajaran");
+        jMenuPelajaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPelajaranActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuPelajaran);
+
         jMenuBar1.add(jMenu7);
 
         jMenu6.setText("Nilai");
+
+        jMenuNilai.setText("Data Nilai");
+        jMenuNilai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuNilaiActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuNilai);
+
         jMenuBar1.add(jMenu6);
 
         jMenu8.setText("About");
@@ -263,6 +285,36 @@ public class menuUtama extends javax.swing.JFrame {
         about.setVisible(true);
     }//GEN-LAST:event_aboutAplikasiActionPerformed
 
+    private void jMenuNilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNilaiActionPerformed
+        // TODO add your handling code here:
+        formNilai nilai = new formNilai();
+        
+        // ambil size screen dan form
+        Dimension layarutama = this.getSize();
+        Dimension layar = nilai.getSize();
+        // set di tengah screen
+        nilai.setLocation(layarutama.width/2-layar.width/2,layarutama.height/2-layar.height/2);
+        
+        panelUtama.add(nilai);
+        nilai.setVisible(true);
+        nilai.tampilNilai();
+    }//GEN-LAST:event_jMenuNilaiActionPerformed
+
+    private void jMenuPelajaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPelajaranActionPerformed
+        // TODO add your handling code here:
+        formPelajaran pelajaran = new formPelajaran();
+        
+        // ambil size screen dan form
+        Dimension layarutama = this.getSize();
+        Dimension layar = pelajaran.getSize();
+        // set di tengah screen
+        pelajaran.setLocation(layarutama.width/2-layar.width/2,layarutama.height/2-layar.height/2);
+        
+        panelUtama.add(pelajaran);
+        pelajaran.setVisible(true);
+        pelajaran.tampilPelajaran();
+    }//GEN-LAST:event_jMenuPelajaranActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -282,6 +334,8 @@ public class menuUtama extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuKelas;
+    private javax.swing.JMenuItem jMenuNilai;
+    private javax.swing.JMenuItem jMenuPelajaran;
     private javax.swing.JMenuItem jMenuSiswa;
     private javax.swing.JMenuItem menuAdmin;
     private javax.swing.JDesktopPane panelUtama;
