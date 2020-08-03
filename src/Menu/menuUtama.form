@@ -83,7 +83,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuKelas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Data Kelas"/>
+                <Property name="text" type="java.lang.String" value="Data Daftar  Kelas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuKelasActionPerformed"/>

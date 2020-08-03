@@ -235,6 +235,8 @@ public class tambahPelajaran extends javax.swing.JFrame {
            sambung.stat.executeUpdate(sql);
            
            JOptionPane.showMessageDialog(null, "Data berhasil di tambahkan");
+           formPelajaran pelajaran = new formPelajaran();
+           pelajaran.tampilPelajaran();
            dispose();
        }
        catch (Exception e){

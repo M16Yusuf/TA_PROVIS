@@ -217,6 +217,8 @@ public class tambahSiswa extends javax.swing.JFrame {
            sambung.stat.executeUpdate(sql);
            
            JOptionPane.showMessageDialog(null, "Data berhasil di tambahkan");
+           formSiswa siswa = new formSiswa();
+           siswa.tampilSiswa();
            dispose();
        }
        catch (Exception e){

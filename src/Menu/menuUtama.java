@@ -111,7 +111,7 @@ public class menuUtama extends javax.swing.JFrame {
         jMenu5.setText("Kelas");
         jMenu5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jMenuKelas.setText("Data Kelas");
+        jMenuKelas.setText("Data Daftar  Kelas");
         jMenuKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuKelasActionPerformed(evt);
