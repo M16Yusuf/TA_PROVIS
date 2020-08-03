@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author asus
+ * @author m16yusuf
  */
 public class tentangAplikasi extends javax.swing.JInternalFrame {
 

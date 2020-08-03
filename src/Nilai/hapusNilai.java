@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pelajaran;
+package Nilai;
 
 import SambungDB.sambungDatabase;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author asus
+ * @author m16yusuf
  */
-public class hapusPelajaran extends javax.swing.JFrame {
+public class hapusNilai extends javax.swing.JFrame {
 
     /**
-     * Creates new form hapusPelajaran
+     * Creates new form hapusNilai
      */
-    public hapusPelajaran() {
+    public hapusNilai() {
         initComponents();
     }
 
@@ -31,20 +31,22 @@ public class hapusPelajaran extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtHapusPelajaran = new javax.swing.JTextField();
+        txthapusNilai = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         btnTutup = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
-        btnHapusPelajaran = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnHapusNilai = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtHapusPelajaran.addActionListener(new java.awt.event.ActionListener() {
+        txthapusNilai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHapusPelajaranActionPerformed(evt);
+                txthapusNilaiActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("ID Nilai");
 
         btnTutup.setText("Tutup");
         btnTutup.addActionListener(new java.awt.event.ActionListener() {
@@ -60,61 +62,65 @@ public class hapusPelajaran extends javax.swing.JFrame {
             }
         });
 
-        btnHapusPelajaran.setText("Submit");
-        btnHapusPelajaran.addActionListener(new java.awt.event.ActionListener() {
+        btnHapusNilai.setText("Submit");
+        btnHapusNilai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusPelajaranActionPerformed(evt);
+                btnHapusNilaiActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("ID Pelajaran");
-
-        jLabel2.setText("Masukan ID pelajran yang akan dihapus");
+        jLabel2.setText("Masukan ID Nilai data yang akan Dihapus:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtHapusPelajaran, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnTutup)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHapusPelajaran)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(39, 39, 39))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnTutup)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnReset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnHapusNilai))
+                            .addComponent(txthapusNilai, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addGap(16, 16, 16)))
+                .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtHapusPelajaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txthapusNilai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTutup)
                     .addComponent(btnReset)
-                    .addComponent(btnHapusPelajaran))
-                .addContainerGap(53, Short.MAX_VALUE))
+                    .addComponent(btnHapusNilai))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(363, 225));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtHapusPelajaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHapusPelajaranActionPerformed
+    private void txthapusNilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthapusNilaiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtHapusPelajaranActionPerformed
+    }//GEN-LAST:event_txthapusNilaiActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
         // TODO add your handling code here:
@@ -123,35 +129,36 @@ public class hapusPelajaran extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-        txtHapusPelajaran.setText("");
+        txthapusNilai.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnHapusPelajaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusPelajaranActionPerformed
+    private void btnHapusNilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusNilaiActionPerformed
         // TODO add your handling code here:
         sambungDatabase sambung = new sambungDatabase();
         try{
-            String sql = "DELETE FROM tb_pelajaran WHERE id_pelajaran='"+txtHapusPelajaran.getText()+"'";
+            String sql = "DELETE FROM tb_nilai WHERE id_nilai='"+txthapusNilai.getText()+"'";
             sambung.stat.executeUpdate(sql);
 
-            JOptionPane.showMessageDialog(null, "Pelajaran dengan ID: "+txtHapusPelajaran.getText()+" berhasil di hapus");
+            JOptionPane.showMessageDialog(null, "Nilai dengan ID: "+txthapusNilai.getText()+" berhasil di hapus");
             dispose();
         }
         catch (SQLException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
             System.out.println("Koneksi Gagal "+e.toString());
         }
-    }//GEN-LAST:event_btnHapusPelajaranActionPerformed
+    }//GEN-LAST:event_btnHapusNilaiActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHapusPelajaran;
+    private javax.swing.JButton btnHapusNilai;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnTutup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtHapusPelajaran;
+    private javax.swing.JTextField txthapusNilai;
     // End of variables declaration//GEN-END:variables
 }

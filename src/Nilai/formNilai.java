@@ -5,9 +5,14 @@
  */
 package Nilai;
 
+import SambungDB.sambungDatabase;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author asus
+ * @author m16yusuf
  */
 public class formNilai extends javax.swing.JInternalFrame {
 
@@ -16,11 +21,51 @@ public class formNilai extends javax.swing.JInternalFrame {
      */
     public formNilai() {
         initComponents();
+        cbKelasMethod();
+    }
+    
+    private void cbKelasMethod(){
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql="select id_kelas from tb_kelas";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            
+           while(res.next()){
+               String jenis =res.getString("id_kelas");
+               CBKelas.addItem(jenis);
+           }    
+        }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        } 
     }
     
     public void tampilNilai(){
-    
+        Object[] row = {"ID Nilai ","Nama Siswa "," Nama Pelajran ","Nilai "}; 
+        DefaultTableModel tabmodel = new DefaultTableModel(null,row);
+        JTableNilai.setModel(tabmodel); 
+        
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql = "SELECT tb_nilai.*,tb_siswa.nama_siswa,tb_pelajaran.nama_pelajaran FROM tb_nilai JOIN tb_pelajaran ON tb_pelajaran.id_pelajaran =tb_nilai.id_pelajaran JOIN tb_siswa ON tb_siswa.nis = tb_nilai.nis";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            while(res.next()){
+                String id_nilai = res.getString("id_nilai");
+                String nama_siswa = res.getString("nama_siswa");
+                String nama_pelajaran = res.getString("nama_pelajaran");
+                String nilai = String.valueOf(res.getInt("nilai"));
+                String[] data = {id_nilai,nama_siswa,nama_pelajaran,nilai};
+                tabmodel.addRow(data);
+            }
+        }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        }   
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,21 +76,300 @@ public class formNilai extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTableNilai = new javax.swing.JTable();
+        TblRefresh = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        Tbltambah = new javax.swing.JButton();
+        TblEdit = new javax.swing.JButton();
+        TblHapus = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        TblTutup = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        CBKelas = new javax.swing.JComboBox<>();
+        CBNama = new javax.swing.JComboBox<>();
+        TblFilter = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        labelNISff = new javax.swing.JLabel();
+
+        JTableNilai.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(JTableNilai);
+
+        TblRefresh.setText("Refresh");
+        TblRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblRefreshActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createTitledBorder(""), javax.swing.BorderFactory.createCompoundBorder()));
+
+        Tbltambah.setText("Tambah");
+        Tbltambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TbltambahActionPerformed(evt);
+            }
+        });
+
+        TblEdit.setText("Edit ");
+
+        TblHapus.setText("Hapus");
+        TblHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblHapusActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Tbltambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TblEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TblHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(Tbltambah)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TblEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TblHapus)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setText("Tabel Data Nilai");
+
+        TblTutup.setText("Tutup");
+        TblTutup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblTutupActionPerformed(evt);
+            }
+        });
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createTitledBorder(""), javax.swing.BorderFactory.createCompoundBorder()));
+
+        jLabel2.setText("Filter Cari Data Siswa :");
+
+        CBKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBKelasActionPerformed(evt);
+            }
+        });
+
+        CBNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBNamaActionPerformed(evt);
+            }
+        });
+
+        TblFilter.setText("Filter ");
+        TblFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TblFilterActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("NIS :");
+
+        labelNISff.setText("NIS ");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CBKelas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CBNama, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TblFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelNISff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CBKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CBNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelNISff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TblFilter))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TblTutup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TblRefresh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(309, 309, 309))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TblRefresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TblTutup)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TblTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblTutupActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_TblTutupActionPerformed
+
+    private void TblRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblRefreshActionPerformed
+        // TODO add your handling code here:
+        tampilNilai();
+    }//GEN-LAST:event_TblRefreshActionPerformed
+
+    private void CBKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBKelasActionPerformed
+        // TODO add your handling code here:
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql="select * from tb_siswa WHERE id_kelas='"+CBKelas.getSelectedItem()+"' ";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            
+            CBNama.removeAllItems();
+   
+            while(res.next()){
+               String jenis =res.getString("nama_siswa");
+               CBNama.addItem(jenis);
+            } 
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        } 
+    }//GEN-LAST:event_CBKelasActionPerformed
+
+    private void TbltambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TbltambahActionPerformed
+        // TODO add your handling code here:
+        tambahNilai tambah = new tambahNilai();
+        tambah.setVisible(true);
+    }//GEN-LAST:event_TbltambahActionPerformed
+
+    private void TblHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblHapusActionPerformed
+        // TODO add your handling code here:
+        hapusNilai hapus = new hapusNilai();
+        hapus.setVisible(true);
+    }//GEN-LAST:event_TblHapusActionPerformed
+
+    private void TblFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblFilterActionPerformed
+        // TODO add your handling code here:
+        Object[] row = {"ID Nilai ","Nama Siswa "," Nama Pelajran ","Nilai "}; 
+        DefaultTableModel tabmodel = new DefaultTableModel(null,row);
+        JTableNilai.setModel(tabmodel); 
+        
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql = "SELECT tb_nilai.*,tb_siswa.nama_siswa,tb_pelajaran.nama_pelajaran FROM tb_nilai JOIN tb_pelajaran ON tb_pelajaran.id_pelajaran =tb_nilai.id_pelajaran JOIN tb_siswa ON tb_siswa.nis = tb_nilai.nis WHERE tb_siswa.nis='"
+                    +labelNISff.getText()+"' ";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            while(res.next()){
+                String id_nilai = res.getString("id_nilai");
+                String nama_siswa = res.getString("nama_siswa");
+                String nama_pelajaran = res.getString("nama_pelajaran");
+                String nilai = String.valueOf(res.getInt("nilai"));
+                String[] data = {id_nilai,nama_siswa,nama_pelajaran,nilai};
+                tabmodel.addRow(data);
+            }
+        }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        }  
+    }//GEN-LAST:event_TblFilterActionPerformed
+
+    private void CBNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBNamaActionPerformed
+        // TODO add your handling code here:
+        sambungDatabase sambung = new sambungDatabase();
+        try{
+            String sql = "SELECT * FROM tb_siswa WHERE nama_siswa= '"+ CBNama.getSelectedItem() +"' ";
+            ResultSet res = sambung.stat.executeQuery(sql);
+            while(res.next()){
+                String nis = res.getString("nis");
+                labelNISff.setText(nis);
+            }  
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            System.out.println("Koneksi Gagal "+e.toString());
+        } 
+    }//GEN-LAST:event_CBNamaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CBKelas;
+    private javax.swing.JComboBox<String> CBNama;
+    private javax.swing.JTable JTableNilai;
+    private javax.swing.JButton TblEdit;
+    private javax.swing.JButton TblFilter;
+    private javax.swing.JButton TblHapus;
+    private javax.swing.JButton TblRefresh;
+    private javax.swing.JButton TblTutup;
+    private javax.swing.JButton Tbltambah;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelNISff;
     // End of variables declaration//GEN-END:variables
 }
