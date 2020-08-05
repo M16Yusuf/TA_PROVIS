@@ -69,7 +69,7 @@ public class formPelajaran extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         CBTingkatKelas = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        TblFilter = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         TblCari = new javax.swing.JButton();
         txtCariPelajaran = new javax.swing.JTextField();
@@ -156,10 +156,10 @@ public class formPelajaran extends javax.swing.JInternalFrame {
 
         CBTingkatKelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas 4", "Kelas 5", "Kelas 6" }));
 
-        jButton1.setText("Filter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        TblFilter.setText("Filter");
+        TblFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                TblFilterActionPerformed(evt);
             }
         });
 
@@ -172,7 +172,7 @@ public class formPelajaran extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                     .addComponent(CBTingkatKelas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(TblFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -183,7 +183,7 @@ public class formPelajaran extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CBTingkatKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(TblFilter)
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -320,7 +320,7 @@ public class formPelajaran extends javax.swing.JInternalFrame {
         edit.setVisible(true);
     }//GEN-LAST:event_TblEditActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void TblFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TblFilterActionPerformed
         // TODO add your handling code here:
         Object[] row = {"ID Pelajaran ","Nama Pelajaran"," Tingkat Kelas","NIP Pengajar ","Nama Pengajar"}; 
         DefaultTableModel tabmodel = new DefaultTableModel(null,row);
@@ -370,18 +370,18 @@ public class formPelajaran extends javax.swing.JInternalFrame {
             System.out.println("Koneksi Gagal "+e.toString());
         }   
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_TblFilterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBTingkatKelas;
     private javax.swing.JButton TblCari;
     private javax.swing.JButton TblEdit;
+    private javax.swing.JButton TblFilter;
     private javax.swing.JButton TblHapus;
     private javax.swing.JButton TblRefresh;
     private javax.swing.JButton TblTambah;
     private javax.swing.JButton TblTutup;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

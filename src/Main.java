@@ -63,12 +63,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        InPassAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InPassAdminActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,10 +112,6 @@ public class Main extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void InPassAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InPassAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InPassAdminActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:

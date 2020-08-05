@@ -56,8 +56,8 @@ public class menuUtama extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         aboutAplikasi = new javax.swing.JMenuItem();
         JmenuADmin = new javax.swing.JMenu();
-        menuAdmin = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuAdmin = new javax.swing.JMenuItem();
+        JmenuLogout = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -168,21 +168,21 @@ public class menuUtama extends javax.swing.JFrame {
             }
         });
 
-        menuAdmin.setText("Data Admin");
-        menuAdmin.addActionListener(new java.awt.event.ActionListener() {
+        jMenuAdmin.setText("Data Admin");
+        jMenuAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuAdminActionPerformed(evt);
+                jMenuAdminActionPerformed(evt);
             }
         });
-        JmenuADmin.add(menuAdmin);
+        JmenuADmin.add(jMenuAdmin);
 
-        jMenuItem3.setText("Logout");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        JmenuLogout.setText("Logout");
+        JmenuLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                JmenuLogoutActionPerformed(evt);
             }
         });
-        JmenuADmin.add(jMenuItem3);
+        JmenuADmin.add(JmenuLogout);
 
         jMenuBar1.add(JmenuADmin);
 
@@ -211,7 +211,7 @@ public class menuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JmenuADminActionPerformed
 
-    private void menuAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdminActionPerformed
+    private void jMenuAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdminActionPerformed
         // TODO add your handling code here:
         formAdmin admin = new formAdmin();
 
@@ -225,7 +225,7 @@ public class menuUtama extends javax.swing.JFrame {
         panelUtama.add(admin);
         admin.setVisible(true);
         admin.tampilAdmin();
-    }//GEN-LAST:event_menuAdminActionPerformed
+    }//GEN-LAST:event_jMenuAdminActionPerformed
 
     private void jMenuSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSiswaActionPerformed
         // TODO add your handling code here:
@@ -274,10 +274,10 @@ public class menuUtama extends javax.swing.JFrame {
         kelas.tampilKelas();
     }//GEN-LAST:event_jMenuKelasActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void JmenuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmenuLogoutActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_JmenuLogoutActionPerformed
 
     private void aboutAplikasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutAplikasiActionPerformed
         // TODO add your handling code here:
@@ -328,6 +328,7 @@ public class menuUtama extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JmenuADmin;
+    private javax.swing.JMenuItem JmenuLogout;
     private javax.swing.JMenuItem aboutAplikasi;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -337,16 +338,15 @@ public class menuUtama extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuItem jMenuAdmin;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuDataGuru;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuKelas;
     private javax.swing.JMenuItem jMenuNilai;
     private javax.swing.JMenuItem jMenuPelajaran;
     private javax.swing.JMenuItem jMenuSiswa;
-    private javax.swing.JMenuItem menuAdmin;
     private javax.swing.JDesktopPane panelUtama;
     // End of variables declaration//GEN-END:variables
 }

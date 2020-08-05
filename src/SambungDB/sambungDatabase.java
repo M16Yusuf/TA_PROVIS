@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  * @author m16yusuf
  */
 public class sambungDatabase {
-    String user     = "root";
-    String pass     = "";
-    String db       = "db10118370nilaisekolah"; 
-    String urlValue = "Jdbc:mysql://localhost:3306/"+db;
-    String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    Connection con = null;
+    public String user     = "root";
+    public String pass     = "";
+    public String db       = "db10118370nilaisekolah"; 
+    public String urlValue = "Jdbc:mysql://localhost:3306/"+db;
+    public String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    public Connection con = null;
     public Statement stat  = null;
     
     public sambungDatabase(){
