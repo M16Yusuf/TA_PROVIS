@@ -3,6 +3,7 @@ import SambungDB.sambungDatabase;
 import Menu.menuUtama;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 /*
@@ -20,7 +21,15 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form frameUtama
      */
+    
     public Main() {
+        try{
+        UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
+ 
+        } 
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
