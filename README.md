@@ -12,9 +12,9 @@ Library yang digunakan adalah :
 # Contoh Program
 
 <br>
-<img src="assets/Screenshot(1).png" alt="Screenshot conth program 1" width="393px" height="273px">
+<img src="./assets/Screenshot (1).png" alt="Screenshot conth program 1" width="393px" height="273px">
 <br>
-<img src="assets/Screenshot(2).png" alt="Screenshot conth program 2" width="393px" height="273px">
+<img src="./assets/Screenshot (2).png" alt="Screenshot conth program 2" width="393px" height="273px">
 <br>
 
 # Database 
