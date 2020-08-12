@@ -1,2 +1,5 @@
 # TA_PROVIS
-Tugas Akhir Provis, tema Sekolah 
+Aplikasi Java dekstop CRUDS sederhana tanpa arsitektur, 
+untuk memenuhi tugas Akhir Mata Kuliah Pemograman Visual (GUI)
+
+
